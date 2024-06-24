@@ -13,10 +13,30 @@ public class CASA_ASSOMBRADA {
 	}
 	
 	public void inicia() {
+		int opcao;
 		Rodando = true;
-		
+		System.out.println("Você está agora numa casa assombrada, e não tem pra onde fugir.");
 		while (Rodando == true) {
+			System.out.println("Você gostaria de: ");
+			System.out.println("1 - Explorar o próximo quarto?");
+			System.out.println("2 - Verificar sua deplorável situação atual?");
+			System.out.println("3 - Ver seu inventário?");
+		}
+		opcao = scanner.nextInt();
+		scanner.nextLine();
+		
+		switch (opcao) {
+		case 1: {
 			
+		}
+		case 2: {
+			jogador.mostraStats();
+		}
+		case 3: {
+			
+		}
+		default:
+			throw new IllegalArgumentException("Não adianta tentar correr.");
 		}
 	}
 
