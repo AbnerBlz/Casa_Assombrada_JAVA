@@ -1,13 +1,13 @@
-package monstros;
+package criaturas;
 import interfaces.Atacavel;
 
-public abstract class Monstro implements Atacavel{
+public abstract class Criatura implements Atacavel{
 	private String Nome;
 	private String Frase;
 	private int Dano;
 	private int HP;
 	
-	public Monstro(String nome, String frase, int dano, int hp) {
+	public Criatura(String nome, String frase, int dano, int hp) {
 		this.Nome = nome;
 		this.Frase = frase;
 		this.Dano = dano;

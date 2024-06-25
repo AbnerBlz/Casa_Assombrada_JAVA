@@ -1,6 +1,6 @@
-package monstros;
+package criaturas;
 
-public class Demonio extends Monstro{
+public class Demonio extends Criatura{
 
 	public Demonio() {
 		super("Baphomet Lucius Satanius", "PEREÇA MORTAL INSOLENTE!", 200, 666);

@@ -21,6 +21,11 @@ public class Jogador implements Atacavel{
 		System.out.println("Sanidade atual: " + this.getSanidade());
 		System.out.println("Dano atual: " + this.getDano());
 	}
+	public void mostraInventario() {
+		for (Item item : Inventario) {
+			//Inventario.
+		}
+	}
 	
 	public int getHP() {
 		return HP;
