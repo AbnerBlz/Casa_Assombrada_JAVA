@@ -1,6 +1,8 @@
 package game;
 import java.util.Scanner;
-
+import criaturas.*;
+import itens.*;
+import armadilhas.*;
 import jogador.Jogador;
 
 public class CASA_ASSOMBRADA {
@@ -8,10 +10,12 @@ public class CASA_ASSOMBRADA {
 	private Jogador jogador;
 	private Scanner scanner = new Scanner(System.in);
 	private TipoMenu tipoMenu;
+	private Aleatoriedade aleatoriedade;
 	
 	CASA_ASSOMBRADA(){
 		this.setJogador(new Jogador());
 		this.tipoMenu = TipoMenu.MENU_PRINCIPAL;
+		this.aleatoriedade = new Aleatoriedade();
 	}
 	
 	public void exibeMenuPrincipal(){
@@ -39,7 +43,20 @@ public class CASA_ASSOMBRADA {
     }
 	
 	public void explorarProximoQuarto(){
-		
+		/*
+		 * Object evento = aleatoriedade.geraEvento();
+		 * 
+		 * if (evento instanceof Criatura) { Criatura criatura = (Criatura) evento;
+		 * System.out.println("Você encontrou um " + criatura.getNome() + "!");
+		 * iniciarCombate(criatura); } else if (evento instanceof Item) { Item item =
+		 * (Item) evento; System.out.println("Você encontrou um " + item.getNome() +
+		 * "!"); jogador.addItem(item); System.out.println("Você pegou o " +
+		 * item.getNome() + "."); } else if (evento instanceof Armadilha) { Armadilha
+		 * armadilha = (Armadilha) evento;
+		 * System.out.println("Você ativou uma armadilha: " + armadilha.getNome() +
+		 * "!"); jogador.receberDano(armadilha.getDano());
+		 * System.out.println("Você recebeu " + armadilha.getDano() + " de dano.");
+		 */
 	}
 	
 	public void inicia() {

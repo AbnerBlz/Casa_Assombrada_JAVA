@@ -13,7 +13,4 @@ public class Cafe extends Item{
 		
 	}
 
-
-
-	
 }
