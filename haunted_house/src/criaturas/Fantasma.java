@@ -7,7 +7,7 @@ public class Fantasma extends Criatura{
 	}
 
 	@Override
-	public void tomaDano(int dano) {
+	public void tomaDanoHP(int dano) {
 		
 	}
 

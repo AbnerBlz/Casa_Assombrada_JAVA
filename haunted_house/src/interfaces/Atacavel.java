@@ -2,5 +2,6 @@ package interfaces;
 
 public interface Atacavel {
 	
-	public void tomaDano(int dano);
+	public void tomaDanoHP(int dano);
+
 }

@@ -13,6 +13,10 @@ public abstract class Criatura implements Atacavel{
 		this.Dano = dano;
 		this.HP = hp;
 	}
+	public void mostraStats() {
+		System.out.println(this.getDano());
+		System.out.println(this.getHP());
+	}
 	
 	public String getNome() {
 		return Nome;

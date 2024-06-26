@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import interfaces.Atacavel;
+import interfaces.Consumivel;
 import itens.Item;
 
 
@@ -22,10 +23,35 @@ public class Jogador implements Atacavel{
 		System.out.println("Dano atual: " + this.getDano());
 	}
 	public void mostraInventario() {
-		for (Item item : Inventario) {
-			//Inventario.
-		}
+	    if (Inventario.isEmpty()) {
+	        System.out.println("Seu inventário está vazio.");
+	    } else {
+	        System.out.println("Itens no seu inventário:");
+	        for (Item item : Inventario) {
+	            System.out.println("- " + item.getNome());
+	        }
+	    }
 	}
+	
+	public void addItem(Item item) {
+	    Inventario.add(item);
+	    System.out.println(item.getNome() + " foi adicionado ao seu inventário.");
+	}
+	
+	public void consomeItem(String nomeItem) {
+        for (int i = 0; i < Inventario.size(); i++) {
+            Item item = Inventario.get(i);
+            if (item.getNome().equals(nomeItem) && item instanceof Consumivel) {
+                ((Consumivel) item).consome(this);
+                Inventario.remove(i);
+                System.out.println(nomeItem + " foi consumido.");
+                System.out.println("Stats atuais: ");
+                mostraStats();
+                return;
+            }
+        }
+       //
+    }
 	
 	public int getHP() {
 		return HP;
@@ -51,12 +77,18 @@ public class Jogador implements Atacavel{
 	public void setDano(int dano) {
 		Dano = dano;
 	}
+	
+
 	@Override
-	public void tomaDano(int dano) {
+	public void tomaDanoHP(int dano) {
 		this.HP -= dano;
-		
 	}
 	
+	public void tomaDanoHPPsico(int dano, int danoPsico) {
+		this.HP -= dano;
+		this.Sanidade -= danoPsico;
+		
+	}
 	
 	
 	

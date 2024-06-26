@@ -19,7 +19,7 @@ public abstract class Item implements Consumivel{
 	public void setStatQuant(int statQuant) {
 		this.statQuant = statQuant;
 	}
-	public String getDescrição() {
+	public String getDescricao() {
 		return descricao;
 	}
 	public void setDescrição(String descrição) {

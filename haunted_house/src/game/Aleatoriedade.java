@@ -15,25 +15,51 @@ public class Aleatoriedade {
 		int evento = Aleatorio.nextInt(3);
 		
 		switch (evento) {
-		case 1:
+		case 0:
 			return geraCriatura();
+			
+		case 1:
+			return geraArmadilha();
+		
+		case 2:
+			return geraItem();
 		default: return null;
 		}
 		
 	}
 
+
+
 	private Object geraCriatura() {
 		int azar = Aleatorio.nextInt(1);
 		
 		switch (azar) {
-		case 1:
+		case 0:
 			return new Vampiro();
 			
 		default: return null;
 		}
 		
-		
 	}
 	
+	private Object geraArmadilha() {
+		int azar = Aleatorio.nextInt(1);
+		
+		switch (azar) {
+		case 0:
+			return new Flechas();
+		}
+		return null;
+	}
+	
+	private Object geraItem() {
+		int sorte = Aleatorio.nextInt(1);
+		
+		switch (sorte) {
+		case 0: return new Cafe();
+		}
+		
+		return null;
+	}
 	
 }

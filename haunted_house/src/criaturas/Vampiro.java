@@ -10,7 +10,7 @@ public class Vampiro extends Criatura{
 
 
 	@Override
-	public void tomaDano(int dano) {
+	public void tomaDanoHP(int dano) {
 		this.setHP(this.getHP()-dano);
 		
 	}

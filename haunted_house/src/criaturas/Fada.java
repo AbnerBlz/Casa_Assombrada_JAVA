@@ -8,7 +8,7 @@ public class Fada extends Criatura{
 	}
 
 	@Override
-	public void tomaDano(int dano) {
+	public void tomaDanoHP(int dano) {
 		System.out.println("por favor não me ataque, eu só quero te ajudar ;-;");
 		
 	}
