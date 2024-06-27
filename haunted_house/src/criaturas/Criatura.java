@@ -5,12 +5,14 @@ public abstract class Criatura implements Atacavel{
 	private String Nome;
 	private String Frase;
 	private int Dano;
+	private int DanoPsicologico;
 	private int HP;
 	
-	public Criatura(String nome, String frase, int dano, int hp) {
+	public Criatura(String nome, String frase, int dano, int hp, int danoPsico) {
 		this.Nome = nome;
 		this.Frase = frase;
 		this.Dano = dano;
+		this.DanoPsicologico = danoPsico;
 		this.HP = hp;
 	}
 	public void mostraStats() {
@@ -41,6 +43,12 @@ public abstract class Criatura implements Atacavel{
 	}
 	public void setDano(int dano) {
 		Dano = dano;
+	}
+	public int getDanoPsicologico() {
+		return DanoPsicologico;
+	}
+	public void setDanoPsicologico(int danoPsicologico) {
+		DanoPsicologico = danoPsicologico;
 	}
 	
 

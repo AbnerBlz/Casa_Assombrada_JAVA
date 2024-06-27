@@ -3,7 +3,7 @@ package criaturas;
 public class Esqueleto extends Criatura{
 
 	public Esqueleto() {
-		super("Esqueleto", "ARRGH!", 20, 20);
+		super("Esqueleto", "ARRGH!", 20, 20, 15);
 	}
 
 	@Override

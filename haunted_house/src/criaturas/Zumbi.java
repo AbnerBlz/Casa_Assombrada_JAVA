@@ -3,7 +3,7 @@ package criaturas;
 public class Zumbi extends Criatura{
 
 	public Zumbi() {
-		super("Morto-Vivo comum", "uuurrr...cérebros!", 20, 10);
+		super("Morto-Vivo comum", "uuurrr...cérebros!", 20, 10, 15);
 		
 	}
 

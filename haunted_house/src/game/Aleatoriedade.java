@@ -17,7 +17,7 @@ public class Aleatoriedade {
 		switch (evento) {
 		case 0:
 			return geraCriatura();
-			
+						
 		case 1:
 			return geraArmadilha();
 		
@@ -30,7 +30,7 @@ public class Aleatoriedade {
 
 
 
-	private Object geraCriatura() {
+	public Object geraCriatura() {
 		int azar = Aleatorio.nextInt(1);
 		
 		switch (azar) {
@@ -42,7 +42,7 @@ public class Aleatoriedade {
 		
 	}
 	
-	private Object geraArmadilha() {
+	public Object geraArmadilha() {
 		int azar = Aleatorio.nextInt(1);
 		
 		switch (azar) {
@@ -52,7 +52,7 @@ public class Aleatoriedade {
 		return null;
 	}
 	
-	private Object geraItem() {
+	public Object geraItem() {
 		int sorte = Aleatorio.nextInt(1);
 		
 		switch (sorte) {

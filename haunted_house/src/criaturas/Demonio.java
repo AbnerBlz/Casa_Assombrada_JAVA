@@ -3,7 +3,7 @@ package criaturas;
 public class Demonio extends Criatura{
 
 	public Demonio() {
-		super("Baphomet Lucius Satanius", "PEREÇA MORTAL INSOLENTE!", 200, 666);
+		super("Baphomet Lucius Satanius", "PEREÇA MORTAL INSOLENTE!", 666, 666, 666);
 	}
 
 	@Override

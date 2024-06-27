@@ -1,6 +1,7 @@
 package jogador;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import interfaces.Atacavel;
 import interfaces.Consumivel;
@@ -24,12 +25,30 @@ public class Jogador implements Atacavel{
 	}
 	public void mostraInventario() {
 	    if (Inventario.isEmpty()) {
-	        System.out.println("Seu inventário está vazio.");
+	        System.out.println("Inventário vazio.");
 	    } else {
 	        System.out.println("Itens no seu inventário:");
 	        for (Item item : Inventario) {
 	            System.out.println("- " + item.getNome());
 	        }
+	    }
+	}
+	
+	public void mostraInventario2() {
+	    if (Inventario.isEmpty()) {
+	        System.out.println("Inventário vazio.");
+	    } else {
+	    	
+	        System.out.println("Itens no seu inventário:");
+	        for (int i = 0; i < Inventario.size(); i++) {
+	        	System.out.println(i+1 + " - " + getInventario().get(i).getNome());
+			}
+	        Scanner scanner = new Scanner(System.in);
+	        int escolha = scanner.nextInt();
+	        scanner.nextLine();
+	        
+	        
+	       
 	    }
 	}
 	
