@@ -3,7 +3,7 @@ package criaturas;
 public class Fantasma extends Criatura{
 
 	public Fantasma() {
-		super("Espectro", "BoOoOOOUGABUGAUGAWOOOO!!!", 40, 1, 30);
+		super("Espectro", "BoOoOOOUGABUGABUGAWOOOO!!!", 10, 1, 30);
 	}
 
 	@Override

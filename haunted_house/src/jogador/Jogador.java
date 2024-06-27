@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import game.TipoMenu;
 import interfaces.Atacavel;
 import interfaces.Consumivel;
 import itens.Item;
@@ -21,35 +22,46 @@ public class Jogador implements Atacavel{
 	public void mostraStats() {
 		System.out.println("Vida atual: " + this.getHP());
 		System.out.println("Sanidade atual: " + this.getSanidade());
-		System.out.println("Dano atual: " + this.getDano());
+		System.out.println("Dano atual: " + this.getDano()+"\n");
 	}
-	public void mostraInventario() {
+//	public void mostraInventario() {
+//	    if (Inventario.isEmpty()) {
+//	        System.out.println("Inventário vazio.");
+//	    } else {
+//	        System.out.println("Itens no seu inventário:");
+//	        for (Item item : Inventario) {
+//	            System.out.println("- " + item.getNome());
+//	        }
+//	    }
+//	}
+	//se pá atualizar pra ter a opção de ver o item antes de consumir, e talvez dropar.
+	public TipoMenu mostraInventario() {
 	    if (Inventario.isEmpty()) {
 	        System.out.println("Inventário vazio.");
 	    } else {
-	        System.out.println("Itens no seu inventário:");
-	        for (Item item : Inventario) {
-	            System.out.println("- " + item.getNome());
+	        System.out.println("Itens no seu inventário (pressione o número respectivo ao item para consumi-lo, pressione qualquer outra tecla para voltar ao menu):");
+	        for (int i = 0; i < Inventario.size(); i++) {
+	            System.out.println((i + 1) + " - " + getInventario().get(i).getNome());
+	        }
+
+	        Scanner scanner = new Scanner(System.in);
+	        while (true) {
+	            
+	            String input = scanner.nextLine();
+	            try {
+	                int escolha = Integer.parseInt(input);
+	                if (escolha > 0 && escolha <= Inventario.size()) {
+	                    this.consomeItem(Inventario.get(escolha - 1).getNome());
+	                    return TipoMenu.MENU_PRINCIPAL;
+	                } else {
+	                    return TipoMenu.MENU_PRINCIPAL;
+	                }
+	            } catch (NumberFormatException e) {
+	                return TipoMenu.MENU_PRINCIPAL;
+	            }
 	        }
 	    }
-	}
-	
-	public void mostraInventario2() {
-	    if (Inventario.isEmpty()) {
-	        System.out.println("Inventário vazio.");
-	    } else {
-	    	
-	        System.out.println("Itens no seu inventário:");
-	        for (int i = 0; i < Inventario.size(); i++) {
-	        	System.out.println(i+1 + " - " + getInventario().get(i).getNome());
-			}
-	        Scanner scanner = new Scanner(System.in);
-	        int escolha = scanner.nextInt();
-	        scanner.nextLine();
-	        
-	        
-	       
-	    }
+	    return TipoMenu.MENU_PRINCIPAL;
 	}
 	
 	public void addItem(Item item) {
@@ -63,7 +75,7 @@ public class Jogador implements Atacavel{
             if (item.getNome().equals(nomeItem) && item instanceof Consumivel) {
                 ((Consumivel) item).consome(this);
                 Inventario.remove(i);
-                System.out.println(nomeItem + " foi consumido.");
+                System.out.println(nomeItem + " foi consumido(a).");
                 System.out.println("Stats atuais: ");
                 mostraStats();
                 return;
