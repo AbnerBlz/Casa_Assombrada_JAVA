@@ -22,8 +22,8 @@ public abstract class Item implements Consumivel{
 	public String getDescricao() {
 		return descricao;
 	}
-	public void setDescrição(String descrição) {
-		this.descricao = descrição;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	public String getNome() {
 		return nome;
