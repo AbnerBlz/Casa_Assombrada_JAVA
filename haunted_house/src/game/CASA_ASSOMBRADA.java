@@ -13,7 +13,10 @@ public class CASA_ASSOMBRADA {
     private Aleatoriedade aleatoriedade;
 
     public CASA_ASSOMBRADA() {
-        this.setJogador(new Jogador());
+        this.jogador = Save.load(); 
+        if (this.jogador == null) {
+            this.jogador = new Jogador();
+        }
         this.tipoMenu = TipoMenu.MENU_PRINCIPAL;
         this.aleatoriedade = new Aleatoriedade();
     }
@@ -43,6 +46,9 @@ public class CASA_ASSOMBRADA {
                 default:
                     break;
             }
+
+            Save.save(jogador);
+
             if (jogador.getHP() <= 0 || jogador.getSanidade() <= 0) {
                 System.out.println("De duas uma: ou você enlouqueceu, ou sangrou até a morte...de toda forma, fim de jogo. Aqui está o que você se lembra em seus últimos momentos de consciência: ");
                 jogador.mostraStats();
@@ -57,9 +63,19 @@ public class CASA_ASSOMBRADA {
         System.out.println("1 - Explorar o próximo quarto?");
         System.out.println("2 - Verificar sua deplorável situação atual?");
         System.out.println("3 - Ver seu inventário?");
-        int opcao = scanner.nextInt();
-        scanner.nextLine();
-
+        
+        int opcao = 0;
+        boolean inputValido = false;
+    
+        while (!inputValido) {
+            try {
+                opcao = Integer.parseInt(scanner.nextLine());
+                inputValido = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Correr.Não.É.Uma.Opção.");
+            }
+        }
+    
         switch (opcao) {
             case 1:
                 tipoMenu = TipoMenu.EXPLORAR_QUARTO;
@@ -71,11 +87,12 @@ public class CASA_ASSOMBRADA {
                 tipoMenu = TipoMenu.MOSTRAR_INVENTARIO;
                 break;
             default:
-                System.out.println("Correr não é uma opção.");
+                System.out.println("Opção inválida. Correr não é uma opção.");
                 tipoMenu = TipoMenu.MENU_PRINCIPAL;
                 break;
         }
     }
+    
 
     public void explorarProximoQuarto() {
         Object evento = aleatoriedade.geraEvento();

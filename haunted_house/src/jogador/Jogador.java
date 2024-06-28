@@ -111,6 +111,32 @@ public class Jogador implements Atacavel{
 		this.Sanidade -= danoPsico;
 		
 	}
+
+	@Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(HP).append(",");
+        sb.append(Sanidade).append(",");
+        sb.append(Dano).append(",");
+        for (Item item : Inventario) {
+            sb.append(item.toString()).append(";");
+        }
+        return sb.toString();
+    }
+
+	public static Jogador fromString(String str) {
+        String[] parts = str.split(",");
+        Jogador jogador = new Jogador();
+        jogador.HP = Integer.parseInt(parts[1]);
+        jogador.Sanidade = Integer.parseInt(parts[2]);
+        jogador.Dano = Integer.parseInt(parts[3]);
+        String[] itens = parts[4].split(";");
+        for (String itemStr : itens) {
+            Item item = Item.fromString(itemStr);
+            jogador.addItem(item);
+        }
+        return jogador;
+    }
 	
 	
 	

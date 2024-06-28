@@ -1,6 +1,7 @@
 package itens;
 
 import interfaces.Consumivel;
+import jogador.Jogador;
 
 public abstract class Item implements Consumivel{
 	private String nome;
@@ -31,4 +32,26 @@ public abstract class Item implements Consumivel{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	@Override
+    public String toString() {
+        return nome + "|" + descricao + "|" + statQuant;
+    }
+
+	public static Item fromString(String str) {
+        String[] parts = str.split("\\|");
+        return new SomeConcreteItem(parts[0], parts[1], Integer.parseInt(parts[2]));
+    }
 }
+
+	class SomeConcreteItem extends Item {
+		public SomeConcreteItem(String nome, String descricao, int statQuant) {
+			super(nome, descricao, statQuant);
+		}
+
+		@Override
+		public void consome(Jogador jogador) {
+			throw new UnsupportedOperationException("Unimplemented method 'consome'");
+		}
+	}
+
