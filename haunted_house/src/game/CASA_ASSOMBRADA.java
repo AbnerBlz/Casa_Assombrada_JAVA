@@ -146,7 +146,7 @@ public class CASA_ASSOMBRADA {
 
         if (criatura.getHP() <= 0) {
             Item item = (Item) aleatoriedade.geraItem();
-            System.out.println("Você erradicou " + criatura.getNome() + ", e acaba de receber um " + item.getNome() + ".");
+            System.out.println("Você erradicou " + criatura.getNome() + ", e acaba de receber um(a) " + item.getNome() + ".");
             System.out.println(item.getDescricao());
             jogador.addItem(item);
             System.out.println();

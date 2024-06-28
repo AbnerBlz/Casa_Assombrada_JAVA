@@ -24,16 +24,7 @@ public class Jogador implements Atacavel{
 		System.out.println("Sanidade atual: " + this.getSanidade());
 		System.out.println("Dano atual: " + this.getDano()+"\n");
 	}
-//	public void mostraInventario() {
-//	    if (Inventario.isEmpty()) {
-//	        System.out.println("Inventário vazio.");
-//	    } else {
-//	        System.out.println("Itens no seu inventário:");
-//	        for (Item item : Inventario) {
-//	            System.out.println("- " + item.getNome());
-//	        }
-//	    }
-//	}
+
 	//se pá atualizar pra ter a opção de ver o item antes de consumir, e talvez dropar.
 	public TipoMenu mostraInventario() {
 	    if (Inventario.isEmpty()) {
