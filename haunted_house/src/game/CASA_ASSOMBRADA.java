@@ -38,20 +38,21 @@ public class CASA_ASSOMBRADA {
                     tipoMenu = TipoMenu.MENU_PRINCIPAL;
                     break;
                 case SAIDA:
-                	menuSaida();
-                	break;
-			default:
-				break;
+                    menuSaida();
+                    break;
+                default:
+                    break;
             }
             if (jogador.getHP() <= 0 || jogador.getSanidade() <= 0) {
                 System.out.println("De duas uma: ou você enlouqueceu, ou sangrou até a morte...de toda forma, fim de jogo. Aqui está o que você se lembra em seus últimos momentos de consciência: ");
                 jogador.mostraStats();
                 Rodando = false;
+                exibirOpcaoReiniciar();
             }
         }
     }
 
-	public void exibeMenuPrincipal() {
+    public void exibeMenuPrincipal() {
         System.out.println("Você gostaria de: ");
         System.out.println("1 - Explorar o próximo quarto?");
         System.out.println("2 - Verificar sua deplorável situação atual?");
@@ -154,19 +155,20 @@ public class CASA_ASSOMBRADA {
     }
 
     private void menuSaida() {
-    	System.out.println("Você encontra um quarto com uma tábua quebrada no canto...deixando vazar o que parece ser...um fino feixe de luz! Certamente se decidir forçá-lo você conseguirá sair deste pesadelo...mas qual seria a emoção?");
-    	System.out.println("1 - Fugir.");
+        System.out.println("Você encontra um quarto com uma tábua quebrada no canto...deixando vazar o que parece ser...um fino feixe de luz! Certamente se decidir forçá-lo você conseguirá sair deste pesadelo...mas qual seria a emoção?");
+        System.out.println("1 - Fugir.");
         System.out.println("2 - Continuar desafiando a morte!");
         int opcao = scanner.nextInt();
         scanner.nextLine();
 
         switch (opcao) {
             case 1:
-                Rodando = false;
                 System.out.println("Você decide fugir, como um pequeno gato amedrontado...lamentável.");
+                Rodando = false;
+                exibirOpcaoReiniciar();
                 break;
             case 2:
-            	System.out.println("Esse é o espírito! Mostra quem manda nessa casa!");
+                System.out.println("Esse é o espírito! Mostra quem manda nessa casa!");
                 tipoMenu = TipoMenu.MENU_PRINCIPAL;
                 break;
             default:
@@ -174,8 +176,26 @@ public class CASA_ASSOMBRADA {
                 tipoMenu = TipoMenu.SAIDA;
                 break;
         }
-	}
+    }
     
+    public void reinicia() {
+        this.setJogador(new Jogador());
+        this.tipoMenu = TipoMenu.MENU_PRINCIPAL;
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
+    
+    private void exibirOpcaoReiniciar() {
+        System.out.println("Você gostaria de tentar novamente? (S/N)");
+        String resposta = scanner.nextLine().toUpperCase();
+        if (resposta.equals("S")) {
+            reinicia();
+            Rodando = true;
+            inicia();
+        } else {
+            System.out.println("Que previsível.");
+        }
+    }
+
     public Jogador getJogador() {
         return jogador;
     }

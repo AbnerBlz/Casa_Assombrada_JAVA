@@ -5,5 +5,6 @@ public enum TipoMenu {
     EXPLORAR_QUARTO,
     MOSTRAR_STATS,
     MOSTRAR_INVENTARIO,
-    SAIDA
+    SAIDA,
+    REINICIA
 }

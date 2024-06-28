@@ -3,7 +3,7 @@ package criaturas;
 public class Lobisomem extends Criatura{
 
 	public Lobisomem() {
-		super("Lewulfe", "AAAWWWOOOOOOOO!!!", 25, 80, 25);
+		super("Lewulfe, o lobisomem", "AAAWWWOOOOOOOO!!!", 25, 150, 25);
 	}
 
 	@Override
