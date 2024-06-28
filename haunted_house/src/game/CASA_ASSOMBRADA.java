@@ -155,7 +155,7 @@ public class CASA_ASSOMBRADA {
     }
 
     private void menuSaida() {
-        System.out.println("Você encontra um quarto com uma tábua quebrada no canto...deixando vazar o que parece ser...um fino feixe de luz! Certamente se decidir forçá-lo você conseguirá sair deste pesadelo...mas qual seria a emoção?");
+        System.out.println("Você encontra um quarto com uma tábua quebrada no canto...deixando vazar o que parece ser...um fino feixe de luz! Certamente se decidir forçá-la você conseguirá sair deste pesadelo...mas qual seria a emoção?");
         System.out.println("1 - Fugir.");
         System.out.println("2 - Continuar desafiando a morte!");
         int opcao = scanner.nextInt();
